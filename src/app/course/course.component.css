@@ -1,0 +1,13 @@
+.box{
+    max-width: 58rem;
+    border-radius: 8px;
+    box-shadow: 1.2px 1.2px 2px 1.2px rgba(0, 0, 255, .2);
+    margin: 5px;
+    padding: 4px;
+    border: 1px black;
+    margin-top: 23px;
+}
+.form-rounded {
+    border-radius: 10px;
+    background-color:rgb(252, 252, 252);
+}

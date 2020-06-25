@@ -1,0 +1,72 @@
+<div class="container">
+    <h3>Adding Programme</h3>
+    <form [formGroup]="programmeForm">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="programe">Programme Name</label>
+                <input formControlName="programe" type="text" name="programe" id="programe"
+                    class="form-control form-rounded">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="faculty">Faculty</label>
+                <select formControlName="faculty" id="faculty" class="form-control form-rounded" (change)=selected()>
+                    <option selected>Choose...</option>
+                    <option *ngFor="let k of facultyNew" [ngValue]="k">{{k}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="department">Department</label>
+                <select formControlName="department" id="department" class="form-control form-rounded">
+                    <option selected>Choose...</option>
+                    <option *ngFor="let k of departmentList" [ngValue]="k">{{k}}</option>
+                </select>
+            </div>
+        </div>
+    </form>
+    <form [formGroup]="courseForm" id="coursedropdown">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="course">Courses</label>
+                <select formControlName="courseTitle" id="courseTitle" class="form-control form-rounded">
+                    <option selected>Choose...</option>
+                    <option *ngFor="let k of coursesTitle" [ngValue]="k">{{k}}</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4" style="margin-top: 19px;">
+                <button class="btn btn-primary" (click)="addCourses()" style="margin-top:10px;">Add Course</button>            
+            </div>
+        </div>
+    </form>
+     <div class="box" id="courseTable" style="display:none;">
+        <table class="table table-hover" style="margin-top: 10px;">
+            <thead class="thead-dark">
+                <tr>
+                    <th>No</th>
+                    <th>Course Title</th>
+                    <th>Course ID</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let course of courseDetail; let i= index">
+                    <td>{{i+1}}</td>
+                    <td>{{course.courseTitle}}</td>
+                    <td>{{course.courseID}}</td>
+                    <td>
+                        <button type="button" class="close" aria-label="Close" (click)="deleteCourse(i)">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="margin-right: 372px;margin-top: 34px;margin-left: 393px" id="registerButton">
+        <button class="btn btn-success" (click)="registerProgram()">Register Programme</button>
+    </div>
+        <div style="margin-right: 372px;margin-top: 34px;margin-left: 393px;display:none" id="updateButton">
+        <button class="btn btn-success" (click)="updateProgram()">Update Programme</button>
+    </div>
+</div>

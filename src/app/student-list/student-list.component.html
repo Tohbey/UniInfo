@@ -1,0 +1,40 @@
+<div class="container">
+    <button class="btn btn-primary" (click)="gotoCreateStudent()" style="margin-bottom: 10px;">
+        Add Student
+    </button>
+    <div class="box">
+        <table class="table table-hover" style="margin-top: 10px;">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Student ID</th>
+                    <th>Surname</th>
+                    <th>first Name</th>
+                    <th>Faculty</th>
+                    <th>Department</th>
+                    <th>Level</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of students;let i= index;">
+
+                    <td>{{ student.studentid }}</td>
+                    <td> {{ student.surname}}</td>
+                    <td> {{ student.firstname }}</td>
+                    <td> {{ student.faculty }}</td>
+                    <td> {{ student.department }}</td>
+                    <td> {{ student.level }}</td>
+                    <td>
+                        <button type="button" class="close" aria-label="Close" (click)="deleteStudent(i)" style="
+                        margin-left: 11px;">
+                            <mat-icon>delete</mat-icon>                            
+                        </button>
+                        <button type="button" class="close" (click)="editStudent(i)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

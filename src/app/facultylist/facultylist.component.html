@@ -1,0 +1,30 @@
+<div class="container">
+    <button class="btn btn-primary" (click)="gotoFaculty()">
+        Add Faculty
+    </button>
+    <div class="box">
+        <table class="table table-hover" style="margin-top: 10px;">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Faculty Name</th>
+                    <th>Departments </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let faculty of facultys;let i=index;">
+                    <td>{{faculty.facultyName}}</td>
+                    <td>
+                            {{faculty.department}}
+                    </td>
+                    <td><button class="btn btn-primary" style="margin-right: 5px;"
+                        (click)="editFacutly(i)">Edit</button>
+                    <button type="button" class="close" aria-label="Close" (click)="deleteFacutly(i)">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

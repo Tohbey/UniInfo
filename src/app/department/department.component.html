@@ -1,0 +1,27 @@
+<div class="container">
+    <h3>Adding Deparments</h3>
+    <form [formGroup]="departmentForm">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="department">Deparment</label>
+                <input type="text" name="department" id="department" class="form-control form-rounded" placeholder="department"
+                    formControlName="departmentName">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="faculty">Faculty</label>
+                <select formControlName="faculty" id="faculty" class="form-control form-rounded">
+                    <option selected>Choose...</option>
+                    <option *ngFor="let k of facultyNew" [ngValue]="k">{{k}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="hod">HOD</label>
+                <input type="text" name="hod" id="hod" class="form-control form-rounded" placeholder="name" formControlName="hod">
+            </div>
+        </div>
+    </form>
+    <button type="submit" id="addDepartment" class="btn btn-primary" (click)="addDepartment()">Add Deparment</button>
+    <button type="submit" id="updateDepartment" class="btn btn-primary" (click)="updateDepartment()" style="display: none">Update Deparment</button>
+</div>

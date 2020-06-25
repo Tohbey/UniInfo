@@ -1,0 +1,15 @@
+.main-panel {
+    margin-left: 261px;
+    padding-top: 30px; 
+}
+.wrapper {
+    position: relative;
+    top: 0;
+	background: #f5f5f5; 
+}
+.sidebar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+}

@@ -1,0 +1,40 @@
+<div class="container">
+    <h3 style="margin-top: 5px;">Add new Courses</h3>
+    <form [formGroup]="courseForm">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="faculty">Faculty</label>
+                <select formControlName="faculty" id="faculty" class="form-control form-rounded" (change)=selected()>
+                    <option selected>Choose...</option>
+                    <option *ngFor="let k of facultyNew" [ngValue]="k">{{k}}</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="department">Department</label>
+                <select formControlName="department" id="department" class="form-control form-rounded">
+                    <option selected>Choose...</option>
+                    <option *ngFor="let k of departmentList" [ngValue]="k">{{k}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="courseTitle">Course Title</label>
+                <input type="text" name="courseTitle" id="courseTitle" class="form-control form-rounded" placeholder="title"
+                    formControlName="courseTitle">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="courseID">Course ID</label>
+                <input type="text" name="courseID" id="courseID" class="form-control form-rounded" placeholder="courseID"
+                    formControlName="courseID">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="courseUnit">Course Unit</label>
+                <input type="text" name="courseUnit" id="courseUnit" class="form-control form-rounded" placeholder="Units"
+                    formControlName="courseUnit">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" id="AddButton" (click)="addCourse()">Add Course</button>
+        <button type="submit" class="btn btn-primary" id="updateButton" style="display:none;" (click)="updateCourse()">Update Course</button>
+    </form>
+</div>

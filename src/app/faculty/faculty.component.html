@@ -1,0 +1,25 @@
+<div class="container">
+    <h3>Adding Faculty</h3>
+    <form [formGroup]="form">
+        <div class="form-group">
+            <label for="faculty">Faculty Name</label>
+            <input type="text" placeholder="faculty" formControlName="faculty"  style="margin-bottom:5px;" class="form-control form-rounded">
+        </div>
+        <h3>Add Department</h3>
+        <button class="btn btn-primary" (click)="addCreds()" style="margin-right: 5px;">Add</button>
+        <div formArrayName="department" *ngFor="let creds of form.get('department').controls; let i = index">
+            <ng-container [formGroupName]="i">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="programName">Department Name</label>
+                        <input type="text" placeholder="departmentName" formControlName="departmentList" style="margin-bottom:5px;" class="form-control form-rounded">
+                    </div>
+                    <div  style="margin-top: 34px;">
+                        <button class="btn btn-danger btn-sm" (click)="removeCreds()">Delete</button>                 
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        <button class="btn btn-success" (click)="submitall()">Submit all</button>
+    </form>
+</div>

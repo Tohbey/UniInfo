@@ -1,0 +1,30 @@
+<header class="header" role="banner">
+    <h1 class="logo">
+      <a style="font-weight:200">Uni<span>Info.</span></a>
+    </h1>
+    <div class="nav-wrap">
+      <nav class="main-nav" role="navigation">
+        <ul class="unstyled list-hover-slide">
+          <li>
+            <a routerLink="/students" style="text-transform:capitalize" routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">Students</a>
+          </li>
+          <li>
+            <a routerLink="/course-list" style="text-transform:capitalize" [routerLinkActive]="['active']">Courses</a>
+          </li>
+          <li>
+            <a routerLink="/department-list" style="text-transform:capitalize" [routerLinkActive]="['active']">Department</a>
+          </li>
+          <li>
+            <a routerLink="/programme-list" style="text-transform:capitalize" [routerLinkActive]="['active']">Program</a>
+          </li>
+          <li>
+            <a routerLink="/faculty-list" style="text-transform:capitalize" [routerLinkActive]="['active']">faculty</a>
+          </li>
+          <li>
+            <a routerLink="/result-computation" style="text-transform:capitalize" [routerLinkActive]="['active']">Cgpa Caculate</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+</header>

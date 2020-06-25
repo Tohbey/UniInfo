@@ -1,0 +1,84 @@
+<div class="container">
+    <h3>Result Computation</h3>
+    <form [formGroup]="studentIDForm">
+        <div class="form-group col-md-6">
+            <label>Student ID</label>
+            <input type="text" class="form-control form-rounded" formControlName="inputId">
+            <button class="btn btn-primary" type="submit" style="margin-top:5px;"
+                (click)="searchStudent()">Search</button>
+        </div>
+    </form>
+    <ng-container *ngIf="num > -1">
+        <div id="detail">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>Student ID</label>
+                    <p>{{resultSheet.studentDetail.studentid}}</p>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Student Name</label>
+                    <p>{{resultSheet.studentDetail.surname}} {{resultSheet.studentDetail.firstname}}</p>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Student Level</label>
+                    <p>{{resultSheet.studentDetail.level}}</p>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>Faculty</label>
+                    <p>{{resultSheet.studentDetail.faculty}}</p>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Department</label>
+                    <p>{{resultSheet.studentDetail.department}}</p>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Program</label>
+                    <p>{{resultSheet.studentDetail.programme}}</p>
+                </div>
+            </div>
+            <div class="box">
+                <table class="table table-hover" style="margin-top: 10px;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>id</th>
+                            <th>Course ID</th>
+                            <th>Course Unit</th>
+                            <th>Grades</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let courseDetail of resultSheet.resultDetail; let i= index">
+                            <td>{{i+1}}</td>
+                            <td>{{courseDetail.courseID}}</td>
+                            <td>{{courseDetail.courseUnit}}</td>
+                            <td>
+                                <select id="grades" class="form-control" (change)="selectChangeHandler($event,i)">
+                                    <option selected>Choose...</option>
+                                    <option *ngFor="let y of grades;" [value]="(y.point*courseDetail.courseUnit)">
+                                        {{y.score}}
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="margin-top: 20px;">
+                <div style="float: left;">
+                    <h4>Total Unit Offerred: <span>{{getTotalUnit()}}</span></h4>
+                </div>
+                <div style="float: right;">
+                    <button class="btn btn-primary" (click)="getCgpa()">Calculate CGPA</button>
+                    <p id="cgpa" style="margin-left: -240px;display: none;">CGPA: {{result}}</p>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="num == -1">
+        <div id="empty">
+            <h3>Enter Correct ID</h3>
+        </div>
+    </ng-container>
+</div>

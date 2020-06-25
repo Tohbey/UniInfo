@@ -1,0 +1,34 @@
+<div class="container">
+    <button class="btn btn-primary" (click)="gotoProgram()">
+        Add Program
+    </button>
+    <div class="box">
+        <table class="table table-hover" style="margin-top: 10px;">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Program</th>
+                    <th>Department</th>   
+                    <th>Faculty</th>
+                    <th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let programs of programDetail; let i=index;">
+
+                    <td>{{programs.department}}</td>
+                    <td>{{programs.programe}}</td>
+                    <td>{{programs.faculty}}</td>
+                    <td>
+                      <button type="button" class="close" aria-label="Close" (click)="deleteProgram(i)" style="
+                        margin-left: 11px;">
+                        <mat-icon>delete</mat-icon>                            
+                      </button>
+                      <button type="button" class="close" (click)="editProgram(i)">
+                        <mat-icon>edit</mat-icon>
+                      </button>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

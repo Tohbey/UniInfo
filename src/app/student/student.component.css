@@ -1,0 +1,27 @@
+.container{
+    padding-left: 9px;
+    padding-right: 25px;
+    padding-top:3px;
+}
+.box{
+    max-width: 66rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 5px;
+    margin-bottom: 9px;
+    padding: 15px;
+    background-color: white;
+}
+.form-control {
+    border: 0;
+    background-color: #e0e0e0;
+}
+.form-rounded {
+    border-radius: 10px;
+}
+.button{
+    border-radius: 7px;
+}
+body{
+    background-color: #EDF0EF;
+}

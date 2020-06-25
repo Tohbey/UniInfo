@@ -1,0 +1,35 @@
+<div class="container">
+    <button class="btn btn-primary" (click)="addCourse()">
+        Add Course
+    </button>
+<div class="box">
+        <table class="table table-hover" style="margin-top: 10px;">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Course Title</th>
+                    <th>Course Unit</th>
+                    <th>Course ID</th>
+                    <th>Faculty</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let course of courses; let i= index">
+                    <td>{{course.courseTitle}}</td>
+                    <td>{{course.courseUnit}}</td>
+                    <td>{{course.courseID}}</td>
+                    <td>{{course.faculty}}</td>
+                    <td>
+                      <button type="button" class="close" aria-label="Close" (click)="deleteCourse(i)" style="
+                        margin-left: 11px;">
+                        <mat-icon>delete</mat-icon>                            
+                      </button>
+                      <button type="button" class="close" (click)="editCourse(i)">
+                        <mat-icon>edit</mat-icon>
+                      </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

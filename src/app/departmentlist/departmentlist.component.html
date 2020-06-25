@@ -1,0 +1,35 @@
+<div class="container">
+    <button class="btn btn-primary" (click)="addDepartment()">
+        Add department
+    </button>
+    <div class="box">
+        <table class="table table-hover" style="margin-top: 10px;">
+            <thead class="thead-dark">
+                <tr>
+                    <th>No</th>
+                    <th>Faculty</th>
+                    <th>Department</th>
+                    <th>H.O.D</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let department of departments; let i= index">
+                    <td>{{i+1}}</td>
+                    <td>{{department.faculty}}</td>
+                    <td>{{department.departmentName}}</td>
+                    <td>{{department.hod}}</td>
+                    <td>
+                      <button type="button" class="close" aria-label="Close" (click)="deleteDepartment(i)" style="
+                        margin-left: 11px;">
+                        <mat-icon>delete</mat-icon>                            
+                      </button>
+                      <button type="button" class="close" (click)="editDepartment(i)">
+                        <mat-icon>edit</mat-icon>
+                      </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>    
+</div>
